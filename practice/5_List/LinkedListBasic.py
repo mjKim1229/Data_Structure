@@ -11,6 +11,7 @@ class LinkedListBasic:
         if i >=0 and i <= self.__numItems:
             prev = self.__getNode(i-1)
             newNode = ListNode(newItem, prev.next)
+            prev.next = newNode
             self.__numItems += 1 
         else: 
             print("index", i, ": out of bound in insert()")
