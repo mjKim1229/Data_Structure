@@ -46,9 +46,22 @@ class CircularLinkedList:
             return None
 
 
-    # def remove(self, x):
+    # def remove(self, x)
     
-    # def get(self, *args):
+    def get(self, *args):
+        if self.isEmpty():
+            return None 
+        
+        if len(args) != 0: 
+            i = args[0]
+        
+        if len(args) == 0 or i == -1:
+            i = self.__numItems - 1
+
+        if (i >= 0 and i <= self.__numItems -1):
+            return self.getNode(i).item
+        else: 
+            return None
 
     # def index(self, x) -> int: 
     
