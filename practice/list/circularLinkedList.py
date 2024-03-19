@@ -109,7 +109,15 @@ class CircularLinkedList:
     #     for i in a:
     #         self.append(i)
 
-    # def __findNode(self, x) -> (ListNode, ListNode): 
+    def findNode(self, x) -> (ListNode, ListNode):
+        prev = self.__tail
+        curr = prev.next
+        while curr != None:
+            if curr.item == x: 
+                return (prev, curr)
+            else: 
+                prev = curr; curr = curr.next
+        return (None, None) 
     
     def getNode(self, i: int) -> ListNode:
         if i == self.__numItems:
