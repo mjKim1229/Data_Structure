@@ -53,11 +53,11 @@ class CircularLinkedList:
             return self.__tail.next
     
     def printList(self) -> None:
-        iter = CircularLinkedlistIterator(self)
-        print(iter.iterPosition)
+        for node in self:
+            print(node)
     
-    # def __iter__(self): 
-    #     return CircularLinkedlistIterator(self)
+    def __iter__(self): 
+        return CircularLinkedlistIterator(self)
 
 
 class CircularLinkedlistIterator: 
