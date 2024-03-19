@@ -49,8 +49,11 @@ class CircularLinkedList:
     # def __findNode(self, x) -> (ListNode, ListNode): 
     
     def getNode(self, i: int) -> ListNode:
-        if i == -1:
-            return self.__tail.next
+        curr = self.__tail.next
+        for index in range(i+1):
+            curr = curr.next
+        return curr
+
     
     def printList(self) -> None:
         for node in self:
