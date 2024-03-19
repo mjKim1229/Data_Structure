@@ -25,6 +25,8 @@ class CircularLinkedList:
         self.__tail.next = newNode
         self.__tail = newNode
         self.__numItems += 1  
+        #print(self.__tail.item)
+
         
     
     def pop(self, *args):
@@ -63,7 +65,18 @@ class CircularLinkedList:
         else: 
             return None
 
-    # def index(self, x) -> int: 
+    def index(self, x) -> int:
+        #마지막 원소 조회시 
+        if x == self.__tail.item:
+            return self.__numItems
+        
+        curr = self.__tail.next.next 
+        for index in range(self.__numItems):
+            if curr.item == x: 
+                return index
+            else: 
+                curr = curr.next
+        return -2  
     
     def isEmpty(self) -> bool:
         return self.__numItems == 0 
@@ -78,21 +91,23 @@ class CircularLinkedList:
     def count(self, x) -> int:
         return self.__numItems
     
-    def extend(self, a): #a는 iterable 
+    def extend(self, a): #a는 iterable
+        for i in a: 
+            self.append(i) 
     
     # def copy(self) -> b'CircularLinkedList':
     
     # def reverse(self) -> None: 
     
-    def sort(self) -> None:
-        a = []
-        for node in self:
-            a.append(node)
-        a.sort()
+    # def sort(self) -> None:
+    #     a = []
+    #     for node in self:
+    #         a.append(node)
+    #     a.sort()
         
-        self.clear()
-        for i in a:
-            self.append(i)
+    #     self.clear()
+    #     for i in a:
+    #         self.append(i)
 
     # def __findNode(self, x) -> (ListNode, ListNode): 
     
