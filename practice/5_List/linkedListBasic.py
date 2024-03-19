@@ -87,6 +87,8 @@ class LinkedListBasic:
             curr = curr.next
         return cnt
     
+    #append시 매번 get(getNode)마지막 노드 매번 찾아감 
+    #tail 추가 후 최적화 
     def extend(self, a): #여기서 a는 self와 같은 타입의 리스트 
         for index in range(a.size()):
             self.append(a.get(index))
@@ -114,6 +116,7 @@ class LinkedListBasic:
         for index in range(len(a)):
             self.append(a[index])
 
+    #return type 삭제 
     def __findNode(self, x) -> (ListNode, ListNode):
         prev = self.__head
         curr = prev.next
