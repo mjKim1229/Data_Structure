@@ -70,7 +70,15 @@ class CircularLinkedList:
     
     # def reverse(self) -> None: 
     
-    # def sort(self) -> None
+    def sort(self) -> None:
+        a = []
+        for node in self:
+            a.append(node)
+        a.sort()
+        
+        self.clear()
+        for i in a:
+            self.append(i)
 
     # def __findNode(self, x) -> (ListNode, ListNode): 
     
