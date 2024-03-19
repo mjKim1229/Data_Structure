@@ -62,9 +62,10 @@ class CircularLinkedList:
         self.__tail = ListNode("dummy",None)
         self.__numItems = 0 
     
-    # def count(self, x) -> int: 
+    def count(self, x) -> int:
+        return self.__numItems
     
-    # def extend(self, a): #a는 iterable 
+    def extend(self, a): #a는 iterable 
     
     # def copy(self) -> b'CircularLinkedList':
     
