@@ -25,7 +25,6 @@ class CircularLinkedList:
         self.__tail.next = newNode
         self.__tail = newNode
         self.__numItems += 1  
-        #print(self.__tail.item)
 
         
     
@@ -163,7 +162,8 @@ class CircularLinkedList:
     
     def printList(self) -> None:
         for node in self:
-            print(node)
+            print(node,end=" ")
+        print()
     
     def __iter__(self): 
         return CircularLinkedlistIterator(self)
