@@ -1,4 +1,4 @@
-from linkedList.listNode import ListNode
+from listNode import *
 
 class CircularLinkedList:
     
@@ -10,11 +10,12 @@ class CircularLinkedList:
     # def insert(self, i:int, newItem) -> None: 
 
     def append(self, newItem) -> None:
-        dummy = self.__tail
+        dummy = self.__tail.next
         newNode = ListNode(newItem, dummy)
         self.__tail.next = newNode
         self.__tail = newNode
         self.__numItems += 1  
+        
     
     # def pop(self, *args):
 
