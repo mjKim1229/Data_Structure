@@ -7,7 +7,14 @@ class CircularLinkedList:
         self.__tail.next = self.__tail
         self.__numItems = 0 
 
-    # def insert(self, i:int, newItem) -> None: 
+    def insert(self, i:int, newItem) -> None:
+        if i >=0 and i <= self.__numItems:
+            prev = self.getNode(i-1)
+            newNode = ListNode(newItem, prev.next)
+            prev.next = newNode
+            self.__numItems += 1 
+        else: 
+            print("index", i, ": out of bound in insert()")
 
     def append(self, newItem) -> None:
         dummy = self.__tail.next
@@ -29,6 +36,8 @@ class CircularLinkedList:
             retItem = prev.next.item
             prev.next = prev.next.next
             self.__numItems -= 1 
+            if self.__numItems == i:
+                self.__tail = prev
             return retItem
         else: 
             return None
@@ -63,6 +72,8 @@ class CircularLinkedList:
     # def __findNode(self, x) -> (ListNode, ListNode): 
     
     def getNode(self, i: int) -> ListNode:
+        if i == self.__numItems:
+            return self.__tail
         curr = self.__tail.next
         for index in range(i+1):
             curr = curr.next
