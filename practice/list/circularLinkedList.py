@@ -106,18 +106,27 @@ class CircularLinkedList:
         for i in a: 
             self.append(i) 
     
-    # def copy(self) -> b'CircularLinkedList':
+    def copy(self) -> b'CircularLinkedList':
+        a = CircularLinkedList()
+        for i in a: 
+            self.append(i)
+        return a
     
     def reverse(self) -> None:
-        a = CircularLinkedList() 
-        for index in range(self.__numItems):
-            a.insert(0, self.get(index))
-        self.clear()
-        for index in range(a.size()):
-            self.append(a.get(index))
-            if index == (a.size()-1):
-                self.__tail = a.get(index)
-    
+        prev = self.__tail
+        curr = self.__tail.next
+        next_node = curr.next
+
+        while curr != self.__tail:
+            curr.next = prev
+            prev = curr
+            curr = next_node
+            next_node = curr.next
+
+        curr.next = prev
+        self.__tail = curr
+        self.__tail.next = curr.next
+        
     
     
     # def sort(self) -> None:
