@@ -130,15 +130,17 @@ class CircularLinkedList:
         
     
     
-    # def sort(self) -> None:
-    #     a = []
-    #     for node in self:
-    #         a.append(node)
-    #     a.sort()
+    def sort(self) -> None:
+        a = []
+        for node in self:
+            a.append(node)
+        a.sort()
+
+        self.clear()
         
-    #     self.clear()
-    #     for i in a:
-    #         self.append(i)
+        for s in a:
+            self.append(s)
+    
 
     def findNode(self, x) -> (ListNode, ListNode):
         prev = self.__tail
