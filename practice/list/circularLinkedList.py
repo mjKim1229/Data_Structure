@@ -108,7 +108,17 @@ class CircularLinkedList:
     
     # def copy(self) -> b'CircularLinkedList':
     
-    # def reverse(self) -> None: 
+    def reverse(self) -> None:
+        a = CircularLinkedList() 
+        for index in range(self.__numItems):
+            a.insert(0, self.get(index))
+        self.clear()
+        for index in range(a.size()):
+            self.append(a.get(index))
+            if index == (a.size()-1):
+                self.__tail = a.get(index)
+    
+    
     
     # def sort(self) -> None:
     #     a = []
