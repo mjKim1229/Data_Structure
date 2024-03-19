@@ -17,7 +17,21 @@ class CircularLinkedList:
         self.__numItems += 1  
         
     
-    # def pop(self, *args):
+    def pop(self, *args):
+        if len(args) != 0: 
+            i = args[0]
+        
+        if len(args) == 0 or i == -1:
+            i = self.__numItems - 1
+        
+        if (i >= 0 and i <= self.__numItems -1):
+            prev = self.getNode(i-1)
+            retItem = prev.next.item
+            prev.next = prev.next.next
+            self.__numItems -= 1 
+            return retItem
+        else: 
+            return None
 
 
     # def remove(self, x):
