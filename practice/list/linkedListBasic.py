@@ -9,7 +9,7 @@ class LinkedListBasic:
     # [알고리즘 5-2] 구현 : 연결 리스트에 삽입 하기 (더미 헤드를 두는 대표 버전)
     def insert(self, i: int, newItem):
         if i >=0 and i <= self.__numItems:
-            prev = self.__getNode(i-1)
+            prev = self.getNode(i-1)
             newNode = ListNode(newItem, prev.next)
             prev.next = newNode
             self.__numItems += 1 
@@ -19,7 +19,7 @@ class LinkedListBasic:
     #맨뒤에 삽입 
     def append(self, newItem):
         #맨 끝의 노드 가져옴 
-        prev = self.__getNode(self.__numItems - 1)
+        prev = self.getNode(self.__numItems - 1)
         newNode = ListNode(newItem, prev.next)
         prev.next = newNode 
         self.__numItems += 1 
@@ -28,7 +28,7 @@ class LinkedListBasic:
     #i번째 노드 삭제, 고정 파라미터 
     def pop(self, i: int):
         if(i >= 0  and i <= self.__numItems-1):
-            prev = self.__getNode(i-1)
+            prev = self.getNode(i-1)
             curr = prev.next
             prev.next = curr.next
             retItem = curr.item
@@ -53,7 +53,7 @@ class LinkedListBasic:
         if self.isEmpty():
             return None 
         if (i >= 0 and i <= self.__numItems -1):
-            return self.__getNode(i).item
+            return self.getNode(i).item
         else: 
             return None
 
@@ -128,7 +128,7 @@ class LinkedListBasic:
         return (None, None)
 
 
-    def __getNode(self, i:int) -> ListNode:
+    def getNode(self, i:int) -> ListNode:
         curr = self.__head 
         for index in range(i+1):
             curr = curr.next
@@ -141,8 +141,21 @@ class LinkedListBasic:
             curr = curr.next
         print()
     
+    def __iter__(self): 
+        return LinkedlistIterator(self)
     
 
+class LinkedlistIterator: 
+    def __init__(self, alist):
+        self.__head = alist.getNode(-1)
+        self.iterPosition = self.__head.next 
+    def __next__(self):
+        if self.iterPosition == None:
+            raise StopIteration
+        else: 
+            item = self.iterPosition.item 
+            self.iterPosition = self.iterPosition.next 
+            return item 
     
     
     
