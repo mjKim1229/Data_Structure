@@ -97,6 +97,7 @@ class CircularLinkedList:
     
     def clear(self):
         self.__tail = ListNode("dummy",None)
+        self.__tail.next = self.__tail
         self.__numItems = 0 
     
     def count(self, x) -> int:
