@@ -1,28 +1,28 @@
-
+from circularLinkedList import * 
 
 class CacheSimulator:
     def __init__(self, cache_slots):
         self.cache_slots = cache_slots
         self.cache_hit = 0
         self.tot_cnt = 1
-        self.array = []
+        self.array = CircularLinkedList()
     
     def do_sim(self, page):
         #1번마다 tot_cnt 증가 
         self.tot_cnt += 1 
-        
         #[1] : 페이지에 있는 지 확인 후 삽입 
-        if page in self.array: #1. cache hit
+        if self.array.findNode(page) != (None,None): #1. cache hit
             self.array.remove(page)
             self.array.insert(0,page)
             self.cache_hit += 1 
         else: #2. cache miss
             self.array.insert(0,page)
-
+        
         
         #[2] : cache_slot의 크기보다 크면 마지막 원소 삭제 
-        if len(self.array) > self.cache_slots:
+        if self.array.size() > self.cache_slots:
             self.array.pop()
+    
  
         
     def print_stats(self):
