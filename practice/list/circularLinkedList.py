@@ -38,9 +38,9 @@ class CircularLinkedList:
             prev = self.getNode(i-1)
             retItem = prev.next.item
             prev.next = prev.next.next
-            self.__numItems -= 1 
-            if self.__numItems == i:
+            if i == (self.__numItems -1):
                 self.__tail = prev
+            self.__numItems -= 1 
             return retItem
         else: 
             return None
