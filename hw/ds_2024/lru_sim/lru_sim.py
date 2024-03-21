@@ -23,10 +23,7 @@ class CacheSimulator:
         #[2] : cache_slot의 크기보다 크면 마지막 원소 삭제 
         if len(self.array) > self.cache_slots:
             self.array.pop()
-
-
-        pass
-        # Do programming here! 
+ 
         
     def print_stats(self):
         print("cache_slot = ", self.cache_slots, "cache_hit = ", self.cache_hit, "hit ratio = ", self.cache_hit / self.tot_cnt)
