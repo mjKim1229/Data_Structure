@@ -12,10 +12,10 @@ class CircularLinkedList:
             prev = self.getNode(i-1)
             newNode = ListNode(newItem, prev.next)
             prev.next = newNode
-            self.__numItems += 1 
             #마지막 노드 추가시 tail 변경 
-            if i == (self.__numItems -1):
+            if i == self.__numItems:
                 self.__tail = newNode
+            self.__numItems += 1 
         else: 
             print("index", i, ": out of bound in insert()")
 
