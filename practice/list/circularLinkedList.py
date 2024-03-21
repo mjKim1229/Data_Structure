@@ -108,19 +108,13 @@ class CircularLinkedList:
         return a
     
     def reverse(self) -> None:
-        prev = self.__tail
-        curr = self.__tail.next
-        next_node = curr.next
-
-        while curr != self.__tail:
+        __head = self.__tail.next  # 더미 헤드
+        prev = __head; curr = prev.next; next = curr.next
+        curr.next = __head; __head.next = self.__tail; self.__tail = curr
+        for i in range(self.__numItems - 1):
+            prev = curr; curr = next; next = next.next
             curr.next = prev
-            prev = curr
-            curr = next_node
-            next_node = curr.next
-
-        curr.next = prev
-        self.__tail = curr
-        self.__tail.next = curr.next
+        
         
     
     
