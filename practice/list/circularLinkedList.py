@@ -74,17 +74,11 @@ class CircularLinkedList:
         else: 
             return None
 
-    def index(self, x) -> int:
-        #마지막 원소 조회시 
-        if x == self.__tail.item:
-            return self.__numItems
-        
-        curr = self.__tail.next.next 
-        for index in range(self.__numItems):
-            if curr.item == x: 
-                return index
-            else: 
-                curr = curr.next
+    def index(self, x) -> int:             
+        for index in self:
+            if index == x: 
+                return count
+            count += 1 
         return -2  
     
     def isEmpty(self) -> bool:
