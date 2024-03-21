@@ -48,12 +48,10 @@ class CircularLinkedList:
 
     def remove(self, x):
         (prev, curr) = self.findNode(x)
-        i = self.index(x)
-        #마지막 노드 remove시 
-        if i == self.__numItems:
-            self.__tail = prev
         if curr != None: #찾아지면 
             prev.next = curr.next 
+            if curr == self.__tail:
+                self.__tail = prev
             self.__numItems -= 1 
             return x 
         else: 
