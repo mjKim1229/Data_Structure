@@ -131,11 +131,10 @@ class CircularLinkedList:
         for node in self:
             a.append(node)
         a.sort()
-
         self.clear()
         
-        for s in a:
-            self.append(s)
+        for node in a:
+            self.append(node)
     
 
     def findNode(self, x) -> (ListNode, ListNode):
