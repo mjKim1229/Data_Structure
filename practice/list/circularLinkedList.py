@@ -138,9 +138,9 @@ class CircularLinkedList:
     
 
     def findNode(self, x) -> (ListNode, ListNode):
-        prev = self.__tail
-        curr = prev.next
-        while curr != None:
+        __head = self.__tail.next
+        curr = __head.next
+        while curr != __head:
             if curr.item == x: 
                 return (prev, curr)
             else: 
