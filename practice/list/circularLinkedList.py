@@ -93,7 +93,11 @@ class CircularLinkedList:
         self.__numItems = 0 
     
     def count(self, x) -> int:
-        return self.__numItems
+        count = 0 
+        for node in self:
+            if node == x: 
+                count += 1 
+        return count
     
     def extend(self, a): #a는 iterable
         for i in a: 
