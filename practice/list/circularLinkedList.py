@@ -20,8 +20,7 @@ class CircularLinkedList:
             print("index", i, ": out of bound in insert()")
 
     def append(self, newItem) -> None:
-        dummy = self.__tail.next
-        newNode = ListNode(newItem, dummy)
+        newNode = ListNode(newItem, self.__tail.next)
         self.__tail.next = newNode
         self.__tail = newNode
         self.__numItems += 1  
