@@ -148,8 +148,6 @@ class CircularLinkedList:
         return (None, None) 
     
     def getNode(self, i: int) -> ListNode:
-        if i == self.__numItems:
-            return self.__tail
         curr = self.__tail.next
         for index in range(i+1):
             curr = curr.next
